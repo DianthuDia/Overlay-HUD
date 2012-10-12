@@ -13,6 +13,12 @@ exports.load = function(message, style){
 	message = message || "Loading...";
 	style = style || exports.STYLE_TWEETIE;
 	
+	// ban duplication hud
+	if(messageWin) {
+		messageWin.close();
+		messageWin = null;
+	}
+	
 	if (style === exports.STYLE_TWEETIE){
 		messageWin = Titanium.UI.createWindow({
 			height: 150,
